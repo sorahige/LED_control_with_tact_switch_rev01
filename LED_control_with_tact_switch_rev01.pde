@@ -1,6 +1,7 @@
 // Example 03A
 // ボタンから指を離したあとも点灯したままにする.
 // stateの保持方法を改良
+// デバウンシング対応のdelay(10)を追加
 
 #define LED 13
 #define BUTTON 7 //push button
@@ -20,6 +21,7 @@ void loop() {
   //変化があるかどうかチェック
   if ((val == HIGH) && (old_val == LOW)){
     state = 1 - state;
+    delay(10);
   }
   old_val = val;
 
